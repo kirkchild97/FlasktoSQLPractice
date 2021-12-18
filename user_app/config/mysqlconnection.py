@@ -19,7 +19,6 @@ class MySQLConnection:
                 cursor.execute(query, data)
                 if query.lower().find("insert") >= 0:
                     self.connection.commit()
-                    print('Got Here')
                     return cursor.lastrowid
                 elif query.lower().find("select") >= 0:
                     result = cursor.fetchall()

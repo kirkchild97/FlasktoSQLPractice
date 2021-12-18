@@ -18,6 +18,7 @@
                 <th scope="col">Last Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Date Created</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,16 @@
                 <td>{{user.last_name}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.created_at}}</td>
+                <td class="d-flex">
+                    <form action="/delete" method="post">
+                        <input type="submit" value="Delete" class="btn text-primary">
+                        <input type="number" name="id" id="id" value="{{user.id}}" hidden>
+                    </form>
+                    <form action="/updateUser" method="post">
+                        <input type="submit" value="Update" class="btn text-primary">
+                        <input type="number" name="id" id="id" value="{{user.id}}" hidden>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
